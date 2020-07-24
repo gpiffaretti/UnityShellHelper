@@ -38,7 +38,7 @@ public class ShellHelper  {
 		get{
 			#if UNITY_EDITOR_WIN
 			string app = "cmd.exe";
-			#elif UNITY_EDITOR_OSX
+			#elif UNITY_EDITOR_OSX || UNITY_EDITOR_LINUX
 			string app = "bash";
 			#endif
 			return app;
@@ -76,7 +76,7 @@ public class ShellHelper  {
 			try{
 				ProcessStartInfo start = new ProcessStartInfo(shellApp);
 
-				#if UNITY_EDITOR_OSX
+				#if UNITY_EDITOR_OSX || UNITY_EDITOR_LINUX
 				string splitChar = ":";
 				start.Arguments = "-c";
 				#elif UNITY_EDITOR_WIN
